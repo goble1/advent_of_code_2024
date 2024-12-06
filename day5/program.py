@@ -1,4 +1,4 @@
-import fnuctools
+import functools
 
 def process1():
     total = 0
@@ -55,7 +55,7 @@ def process2():
         for i in range(len(update)):
             for j in range(i+1,len(update)):
                 key=(update[i],update[j])
-                if key in cache and not cache[key] == 1 :
+                if key in cache and cache[key] == 1 :
                     return False 
         return True
 
@@ -65,7 +65,7 @@ def process2():
         update = list(map(int,line.split(",")))
         #check all of them
         if is_ordered(update): continue
-        update.sort(key=functools.com_to_key(cmp))
+        update.sort(key=functools.cmp_to_key(cmp))
         total += update[len(update)//2]
 
 
